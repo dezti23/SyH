@@ -5,8 +5,8 @@
     }
     .nav__ul {
         all: unset;
-        position: relative;
-        top: -2px;
+        position: absolute;
+        top: 2.6vh;
         right: 30px;
         display: flex;
         flex-direction: row;

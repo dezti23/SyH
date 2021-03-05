@@ -51,18 +51,17 @@ html::-webkit-scrollbar-thumb {
 }
 .nav__ul {
     position: fixed;
-    top: 67px;
+    top: 8vh;
     bottom: 100%;
     width: 100%;
     flex-direction: column;
     justify-content: space-evenly;
-    
     overflow: hidden;
     opacity: 0;
     transition: all .5s ease-in-out;
 }
 input:checked ~ .nav__ul {
-    bottom: 81.5%;
+    bottom: auto;
     opacity: 1;
 }
 .ul__item {
@@ -72,7 +71,7 @@ input:checked ~ .nav__ul {
     font-size: 1.5rem;
     text-transform: uppercase;
     border-bottom: 1px solid rgba(128, 128, 128, 0.39);
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.9);
 }
 .ul__item a {
     font-family: 'Quicksand', sans-serif;
@@ -123,6 +122,7 @@ input:checked ~ .burger .burger__line:nth-child(2) {
         font-size: 1.6rem;
     }
     input:checked ~ .nav__ul {
+        top: 7.8vh;
         bottom: 80.1%;
     }
 }
