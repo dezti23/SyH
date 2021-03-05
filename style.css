@@ -61,7 +61,7 @@ html::-webkit-scrollbar-thumb {
     transition: all .5s ease-in-out;
 }
 input:checked ~ .nav__ul {
-    bottom: auto;
+    bottom: 70%;
     opacity: 1;
 }
 .ul__item {
