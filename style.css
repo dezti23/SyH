@@ -1,0 +1,128 @@
+:root {
+    --nav-white: ivory;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html {
+    font-family: Helvetica, sans-serif;
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+}
+html::-webkit-scrollbar {
+    width: 1.6rem;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+html::-webkit-scrollbar-thumb {
+    background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+    border-radius: 20px;
+}
+.header {
+    width: 100%;
+    height: 8vh;
+    background-color: rgb(141, 57, 57);
+    font-size: 2rem;
+    position: fixed;
+    z-index: 50;
+}
+.logo {
+    text-decoration: none;
+    color: var(--nav-white);
+}
+#nav-toggle {
+    position: absolute;
+    top: -100px
+}
+.burger {  
+    position: absolute;
+	right: 5%;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.burger__line {
+    width: 18px;
+    height: 2px;
+    background-color: var(--nav-white);
+    margin-bottom: 4px;
+    border-radius: 2px;
+    transition: all .3s ease-in-out;
+}
+.nav__ul {
+    position: fixed;
+    top: 67px;
+    bottom: 100%;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    
+    overflow: hidden;
+    opacity: 0;
+    transition: all .5s ease-in-out;
+}
+input:checked ~ .nav__ul {
+    bottom: 81.5%;
+    opacity: 1;
+}
+.ul__item {
+    padding: 5px 0;
+    list-style: none;
+    text-align: center;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.39);
+    background-color: rgba(0, 0, 0, 0.8);
+}
+.ul__item a {
+    font-family: 'Quicksand', sans-serif;
+    letter-spacing: .5px;
+    text-decoration: none;
+    color: var(--nav-white)
+}
+input:checked ~ .burger .burger__line:nth-child(1) {
+    transform: translateY(6px) rotate(225deg);
+}
+input:checked ~ .burger .burger__line:nth-child(3) {
+    transform: translateY(-6px) rotate(-225deg);
+}
+input:checked ~ .burger .burger__line:nth-child(2) {
+    opacity: 0;
+}
+.main__section {
+    height: 100vh;
+    font-size: 1.5rem;
+}
+.section__content {
+    position: relative;
+    top: 9vh;
+}
+#intro {
+    height: 100vh;
+    background-color: cadetblue;
+    position: relative;
+    top: 8vh;
+    z-index: -1;
+}
+#intro:hover .ul__item a{
+    color: var(--nav-white);
+}
+#about {
+    background-color: chartreuse;
+}
+#services {
+    background-color: cyan;
+}
+.footer {
+    height: 50vh;
+    font-size: 1.5rem;
+}
+@media screen and (min-width: 600px) {
+    .ul__item {
+        padding: 6px 0;
+        font-size: 1.6rem;
+    }
+    input:checked ~ .nav__ul {
+        bottom: 80.1%;
+    }
+}
