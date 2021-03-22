@@ -1,50 +1,47 @@
-window.onload = function(){ 
-    const us = document.getElementById("nosotros");
-    const services = document.getElementById("servicios");
-    const contact = document.getElementById("contacto");
+const nosotros = document.getElementById("nosotros");
+const servicios = document.getElementById("servicios");
+const contacto = document.getElementById("contacto");
 
-    const aboutSection = () => {
-        us.style.color = "silver";
-        services.style.color = "ivory";
-        contact.style.color = "ivory";
-        if (window.matchMedia("(max-width: 799px)").matches) {
-            document.getElementById("nav-toggle").checked = false;
-        }
-    }
+const about = document.querySelector('#about');
+const services = document.querySelector('#services');
+const contact = document.querySelector('#contact');
 
-    const servicesSection = () => {
-        services.style.color = "silver";
-        us.style.color = "ivory";
-        contact.style.color = "ivory";
-        if (window.matchMedia("(max-width: 799px)").matches) {
-            document.getElementById("nav-toggle").checked = false;
-        }
-    }
-
-    const contactSection = () => {
-        contact.style.color = "silver";
-        us.style.color = "ivory";
-        services.style.color = "ivory";
-        if (window.matchMedia("(max-width: 799px)").matches) {
-            document.getElementById("nav-toggle").checked = false;
-        }
-    }
-
-    document.querySelector(".logo").addEventListener("click", clickLogo => {
-        us.style.color = "ivory";
-        services.style.color = "ivory";
-        contact.style.color = "ivory";
-        if (window.matchMedia("(max-width: 799px)").matches) {
-            document.getElementById("nav-toggle").checked = false;
-        }
-    })
-
-    document.getElementById("services").addEventListener("wheel", servicesSection);
-    document.getElementById("servicios").addEventListener("click", servicesSection);
-
-    document.getElementById("about").addEventListener("wheel", aboutSection);
-    document.getElementById("nosotros").addEventListener("click", aboutSection);
-
-    document.getElementById("contact").addEventListener("wheel", contactSection);
-    document.getElementById("contacto").addEventListener("click", contactSection);
+const options = {
+    threshold: 0.5
 }
+
+const options1 = {
+    threshold: 0.95
+}
+
+const observerAbout = new IntersectionObserver(function (entries) {
+    if (entries[0].isIntersecting) {
+		nosotros.style.color = "silver";
+	} else {
+		nosotros.style.color = "ivory";
+	}
+}, options);
+
+observerAbout.observe(about);
+
+
+const observerServices = new IntersectionObserver(function (entries) {
+    if (entries[0].isIntersecting) {
+		servicios.style.color = "silver";
+	} else {
+		servicios.style.color = "ivory";
+	}
+}, options);
+
+observerServices.observe(services);
+
+
+const observerContact = new IntersectionObserver(function (entries) {
+    if (entries[0].isIntersecting) {
+		contacto.style.color = "silver";
+	} else {
+		contacto.style.color = "ivory";
+	}
+}, options1);
+
+observerContact.observe(contact);
